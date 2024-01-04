@@ -1,5 +1,5 @@
 % read an image from a file
-image = imread('exp 1\254A4667.jpg');
+image = imread('exp 1\254A4667.jpg'); %enter path here
 
 % write the image to a new file in JPG format
 imwrite(image, 'exp 1\254A4667_new.jpg');
