@@ -3,7 +3,7 @@ a=5;
 disp(a);
 
 %creating matrix
-matrix=[1,2,3;4,5,6;7,8,9];
+matrix=[1,12,-3;0,5,6;-7,18,9];
 
 % printing matrix using for loop
 disp('Matrix is: ');
