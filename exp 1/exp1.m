@@ -1,6 +1,11 @@
+%create and display variable
+a=5;
+disp(a);
+
+%creating matrix
 matrix=[1,2,3;4,5,6;7,8,9];
 
-% printing matrix
+% printing matrix using for loop
 disp('Matrix is: ');
 for i = 1:size(matrix, 1)
     disp(matrix(i, :));  
