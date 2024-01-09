@@ -2,5 +2,5 @@
 img = imread('');  %enter path here
 %displaying image
 imshow(img);
-title('kryso pic');
+title(''); %name of picture
 
