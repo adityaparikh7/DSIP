@@ -21,29 +21,38 @@ exponential_neg = exp(b * n) .* double(n >= 0);
 frequency = 0.1; 
 sinusoidal = sin(2 * pi * frequency * n);
 
+% complex exponential
+c = 0.5;
+complex_exponential = exp(1i * c * n) .* double(n >= 0);
+
+
 % Plotting
-subplot(3, 2, 1);
+subplot(3, 3, 1);
 stem(n, impulse);
 title('Impulse Signal');
 
-subplot(3, 2, 2);
+subplot(3, 3, 2);
 stem(n, unit_step);
 title('Unit Step Signal');
 
-subplot(3, 2, 3);
+subplot(3, 3, 3);
 stem(n, ramp);
 title('Ramp Signal');
 
-subplot(3, 2, 4);
+subplot(3, 3, 4);
 stem(n, exponential);
 title('Exponential Signal');
 
-subplot(3, 2, 5);
+subplot(3, 3, 5);
 stem(n, exponential_neg);
 title('Decreasing Exponential Signal');
 
-subplot(3, 2, 6);
+subplot(3, 3, 6);
 stem(n, sinusoidal);
 title('Sinusoidal Signal');
+
+subplot(3, 3, 7);
+stem(n, complex_exponential);
+title('Complex Exponential Signal');
 
 %sgtitle('Discrete-time Signals');
