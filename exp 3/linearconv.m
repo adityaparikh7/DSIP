@@ -1,43 +1,44 @@
 %linear convolution of 2 discrete signals
 
-x = input('Enter first signal x[n] as a vector: ');
-t_x = input('Enter the time vector for the first signal: ');
+x_values = input('Enter the values of x(n) in square brackets: ');
+t_x = input('Enter the corresponding time values of x(n) in square brackets: ');
 
-h = input('Enter second signal h[n] as a vector: ');
-t_h = input('Enter the time vector for the second signal: ');
+h_values = input('Enter the values of h(n) in square brackets: ');
+t_h = input('Enter the corresponding time values of h(n) in square brackets: ');
 
-%linear convolution
-M = length(x);
-N = length(h);
-y_linear = zeros(1, M + N - 1);
+% Calculate linear convolution
+M = length(x_values);
+N = length(h_values);
+L = M + N - 1;
 
-for n = 1:M + N - 1
-    for k = max(1, n-M+1):min(n,N)
-        y_linear(n) = y_linear(n) + x(n-k+1)*h(k);
+y_values = zeros(1, L);
+t_y = min(t_x) + min(t_h) : max(t_x) + max(t_h);
+
+for n = 1:L
+    for k = max(1, n-N+1):min(M, n)
+        y_values(n) = y_values(n) + x_values(k) * h_values(n-k+1);
     end
-
 end
 
-% Plotting
-figure(n);
+% Plotting input signals
+subplot(3, 1, 1);
+stem(t_x, x_values, 'r');
+title('Signal x(n)');
 
-subplot(3,1,1);
-stem(t_x, x, 'r');
-title('Signal x[n]');
+subplot(3, 1, 2);
+stem(t_h, h_values, 'b');
+title('Signal h(n)');
 
-subplot(3,1,2);
-stem(t_h, h, 'b');
-title('Signal h[n]');
+% Plotting convolution result
+subplot(3, 1, 3);
+stem(t_y, y_values, 'g');
+title('Linear Convolution y(n)');
 
-subplot(3,1,3);
-stem(y_linear, 'g');
-title(['Linear Convolution Result at n = ', num2str(n)]);
-
-% Display results
-disp('Linear Convolution Result:');
-disp(y_linear);
+% Adjusting subplot layout
+sgtitle('Linear Convolution of x(n) and h(n)');
 
 
-% example
 % [1,2,0.5,1]
+% [0,1,2,3]
 % [1,2,1,-1]
+% [-1,0,1,2]
