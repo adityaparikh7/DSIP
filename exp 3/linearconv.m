@@ -37,6 +37,9 @@ title('Linear Convolution y(n)');
 % Adjusting subplot layout
 sgtitle('Linear Convolution of x(n) and h(n)');
 
+% displaying results
+disp('Linear Convolution Result:');
+disp(y_values);
 
 % [1,2,0.5,1]
 % [0,1,2,3]
