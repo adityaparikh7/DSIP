@@ -1,15 +1,12 @@
+subplot(2, 3, 1);
+imshow(img);
+title('Original Image');
+
 % Image negative
 img = imread('_MG_9276.JPG');
 [m, n] = size(img);
 L = max(img(:));
 img_neg = L - img;
-
-% Display images in a 2x2 grid
-figure;
-
-subplot(2, 3, 1);
-imshow(img);
-title('Original Image');
 
 subplot(2, 3, 2);
 imshow(uint8(img_neg));
@@ -50,19 +47,18 @@ subplot(2, 3, 4);
 imshow(uint8(img_thresh_back));
 title('Threshold With Background');
 
-% Gray level slicing
-T1 = 100; % Lower threshold
-T2 = 150; % Upper threshold
-
-% Initialize the output image
-img_gray_slice = img;
-
 % Apply gray level slicing
-img_gray_slice(img >= T1 & img <= T2) = 255; % Set pixels in the range [T1, T2] to 255
-img_gray_slice(img < T1 | img > T2) = 0; % Set all other pixels to 0
+img_gray_slice(img >= T1 & img <= T2) = 255;
 
-% Display the result
 subplot(2, 3, 5); % Position in the 2x3 grid
 imshow(img_gray_slice);
 title('Gray Level Slicing');
 
+
+% Bit plane slicing (example: 7th bit plane)
+bit_plane = bitget(img, 7);
+img_bpslice = uint8(bit_plane == 1);
+
+subplot(2, 3, 6);
+imshow(img_bpslice);
+title('Bit Plane Slicing');
