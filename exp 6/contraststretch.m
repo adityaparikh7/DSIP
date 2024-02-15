@@ -2,11 +2,10 @@
 originalImage = imread('_MG_9276.JPG');
 
 % Convert the color image to grayscale
-originalGrayImage = rgb2gray(originalColorImage);
+originalGrayImage = rgb2gray(originalImage);
 
 % Convert the grayscale image to double for accurate calculations
 originalGrayImage = double(originalGrayImage);
-
 
 % Take user input for values of r1, r2, s1, and s2
 r1 = input('Enter r1 (minimum pixel value for stretching): ');
@@ -15,21 +14,21 @@ s1 = input('Enter s1 (desired minimum output intensity): ');
 s2 = input('Enter s2 (desired maximum output intensity): ');
 
 % Apply contrast stretching transformation
-stretchedImage = contrastStretching(originalImage, r1, r2, s1, s2);
+stretchedGrayImage = contrastStretching(originalGrayImage, r1, r2, s1, s2);
 
 % Display the original and stretched images
 figure;
-subplot(2, 2, 1);
-imshow(uint8(originalColorImage));
-title('Original Image');
+subplot(1, 3, 1);
+imshow(uint8(originalImage));
+title('Original Color Image');
 
-subplot(2, 2, 2);
+subplot(1, 3, 2);
 imshow(uint8(originalGrayImage));
-title('Gray Image');
+title('Original Grayscale Image');
 
-subplot(2, 2, 3);
-imshow(uint8(stretchedImage));
-title('Contrast Stretched Image');
+subplot(1, 3, 3);
+imshow(uint8(stretchedGrayImage));
+title('Contrast Stretched Grayscale Image');
 
 function stretchedImage = contrastStretching(inputImage, r1, r2, s1, s2)
     % Apply the contrast stretching transformation
