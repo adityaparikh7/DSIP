@@ -50,12 +50,12 @@ title('Threshold With Background');
 % Apply gray level slicing
 img_gray_slice(img >= T1 & img <= T2) = 255;
 
-subplot(2, 3, 5); % Position in the 2x3 grid
+subplot(2, 3, 5); 
 imshow(img_gray_slice);
 title('Gray Level Slicing');
 
 
-% Bit plane slicing (example: 7th bit plane)
+% Bit plane slicing
 bit_plane = bitget(img, 7);
 img_bpslice = uint8(bit_plane == 1);
 
