@@ -4,7 +4,6 @@ image = imread('_MG_9276.JPG');
 gray_image = rgb2gray(image);
 
 % high pass filter
-% filter = fspecial('laplacian', 0.5);
 filter = [0 -1 0; -1 5 -1; 0 -1 0];
 
 % Apply filter
