@@ -14,7 +14,7 @@ if length(X) ~= N
     error('Input sequence length must be equal to N');
 end
 
-% % Display frequency domain representation
+% Display frequency domain representation
 disp('Frequency Domain Representation:');
 disp(X);
 
@@ -35,11 +35,11 @@ for k = 1:N
     W(k) = W(k) / N;
 end
 
-% % Display twiddle factors
+% Display twiddle factors
 disp('Twiddle Factors:');
 disp(W);
 
-% % Display IDFT output sequence
+% Display IDFT output sequence
 disp('IDFT Output Sequence:');
 disp(x);
 

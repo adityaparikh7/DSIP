@@ -106,7 +106,7 @@ end
 
 % Display FFT output sequence
 disp('FFT Output Sequence:');
-disp(abs(x));
+disp(x);
 
 % Plot FFT output sequence
 subplot(2, 1, 2);
