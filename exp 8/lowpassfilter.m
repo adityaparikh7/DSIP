@@ -1,4 +1,5 @@
 image = imread('_MG_9276.JPG');
+% image = imread('_MG_6388.JPG');
 
 % Convert to grayscale
 gray_image = rgb2gray(image);
